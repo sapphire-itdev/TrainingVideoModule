@@ -1,0 +1,391 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Training Videos| Sapphire Foods India Ltd.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Petty Cash Management | Sapphire Foods India Pvt. Ltd." name="description" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/sapphire-logo.png">
+
+    <!-- Bootstrap Css -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/assets/libs/%40chenfengyuan/datepicker/datepicker.min.css">
+
+    <!-- DataTables -->
+    <link href="/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        .footer {
+            position: fixed !important;
+        }
+
+        .navbar-brand-box {
+            background: #ffffff !important;
+        }
+    </style>
+
+    <style>
+        .lnk-view-btn {
+            color: #556ee6;
+            padding-left: 5px;
+        }
+
+        .lnk-edit-btn {
+            color: #3B86FF;
+            padding-left: 5px;
+        }
+
+        .lnk-log-btn {
+            color: #f1b44c;
+            padding-left: 5px;
+        }
+    </style>
+
+    <style>
+        #datatable td {
+            white-space: normal;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body data-sidebar="dark">
+    <form id="form1" runat="server">
+        <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <a href="#" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="/assets/images/sapphire-logo.png" alt="" height="22">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="/assets/images/sapphire-logo.png" alt="" height="17">
+                                </span>
+                            </a>
+
+                            <a href="#" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="/assets/images/sapphire-logo.png" alt="" style="height: 33px;">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="/assets/images/logo-2.png" alt="" style="height: 40px; width: 200px;">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect show-btn" id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+
+                        <!-- App Search-->
+
+
+
+                    </div>
+
+                    <div class="d-flex">
+                        <%--<div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bx bx-bell"></i>
+                                <span class="badge bg-danger rounded-pill">3</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                                aria-labelledby="page-header-notifications-dropdown">
+                                <div class="p-3">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0" key="t-notifications"> Notifications </h6>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a href="#!" class="small" key="t-view-all"> View All</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-simplebar style="max-height: 230px;">
+                                    <a href="#" class="text-reset notification-item">
+                                        <div class="media">
+                                            <div class="avatar-xs me-3">
+                                                <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                    <i class="bx bx-cart"></i>
+                                                </span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1" key="t-your-order">Your order is placed</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">3 min ago</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="text-reset notification-item">
+                                        <div class="media">
+                                            <img src="assets/images/users/avatar-3.jpg"
+                                                class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1">James Lemire</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1" key="t-simplified">It will seem like simplified English.</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-hours-ago">1 hours ago</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="text-reset notification-item">
+                                        <div class="media">
+                                            <div class="avatar-xs me-3">
+                                                <span class="avatar-title bg-success rounded-circle font-size-16">
+                                                    <i class="bx bx-badge-check"></i>
+                                                </span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1" key="t-shipped">Your item is shipped</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">3 min ago</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="p-2 border-top d-grid">
+                                    <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                        <i class="mdi mdi-arrow-right-circle me-1"></i> <span key="t-view-more">View More..</span> 
+                                    </a>
+                                </div>
+                            </div>
+                        </div>--%>
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <%--<img class="rounded-circle header-profile-user" src="/assets/images/sapphire-logo.png"
+                                    alt="Header Avatar">--%>
+                                <i class="fas fa-user fa-2x rounded-circle header-profile-user"></i>
+                                <asp:PlaceHolder ID="plcuname" runat="server"></asp:PlaceHolder>
+                                <%--<span class="d-none d-xl-inline-block ms-1" key="t-henry">Username</span>--%>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <%--     <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i><span key="t-profile">Profile</span></a>--%>
+                                <a class="dropdown-item text-danger" href="#" id="btnlogout" runat="server" onserverclick="btnlogout_clicked"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i><span key="t-logout">Logout</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div data-simplebar class="h-100">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li class="menu-title" key="t-menu">Menu</li>
+
+                            <asp:PlaceHolder ID="plcmenu" runat="server"></asp:PlaceHolder>
+                            <li class="lidash">
+                                <a href="/Pages/FinallyAdminVideoTest.aspx" class="waves-effect">
+                                    <i class="bx bxs-dashboard"></i>
+                                    <span key="t-dashboards">Create Training</span>
+                                </a>
+                            </li>
+                            <li class="lidash">
+                                <a href="/Pages/dashboard.aspx" class="waves-effect">
+                                    <i class="bx bxs-dashboard"></i>
+                                    <span key="t-dashboards">Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li class="litax">
+                                <a href="/Pages/Course.aspx" class="waves-effect">
+                                    <i class='bx bx-slideshow'></i>
+                                    <span key="t-layouts">Course</span>
+                                </a>
+                            </li>
+                     <%--       <li class="lifinance">
+                                <a href="Profile.aspx" class="waves-effect">
+                                    <i class='bx bxs-user-circle'></i>
+                                    <span key="t-dashboards">Profile</span>
+                                </a>
+                            </li>--%>
+                            <%--  <li class="lidash">
+                                <a href="/dashboard.aspx" class="waves-effect">
+                                    <i class="bx bxs-dashboard"></i>
+                                    <span key="t-dashboards">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="livendor">
+                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bx-store"></i>
+                                    <span key="t-layouts">Vendor</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                            <li><a href="/vendor/add-vendor.aspx" key="t-light-sidebar">Add Vendor</a></li>
+                                            <li><a href="/vendor/vendor.aspx" key="t-compact-sidebar">Vendor Details</a></li>
+                                        </ul>
+                            </li>
+                           <li class="litax">
+                                <a href="/tax/tax-vendor.aspx" class="waves-effect">
+                                    <i class="bx bx-store"></i>
+                                    <span key="t-dashboards">Request</span>
+                                </a>
+                            </li>
+                            <li class="lifinance">
+                                <a href="/fin/fin-vendor.aspx" class="waves-effect">
+                                    <i class="bx bx-store"></i>
+                                    <span key="t-dashboards">Request</span>
+                                </a>
+                            </li>--%>
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script>
+                                © Sapphire Foods India Ltd.
+                           
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+        <!-- JAVASCRIPT -->
+
+
+        <script src="/assets/libs/jquery/jquery.min.js"></script>
+        <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="/assets/libs/node-waves/waves.min.js"></script>
+
+        <script src="/assets/libs/select2/js/select2.min.js"></script>
+        <script src="/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <script src="/assets/libs/spectrum-colorpicker2/spectrum.min.js"></script>
+        <script src="/assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+        <script src="/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+        <script src="/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+        <script src="/assets/libs/%40chenfengyuan/datepicker/datepicker.min.js"></script>
+
+
+        <!-- Required datatable js -->
+        <script src="/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Buttons examples -->
+        <script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+        <script src="/assets/libs/jszip/jszip.min.js"></script>
+        <script src="/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+        <script src="/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+        <script src="/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+        <!-- Responsive examples -->
+        <script src="/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+        <!-- Datatable init js -->
+        <script src="/assets/js/pages/datatables.init.js"></script>
+
+        <!-- Chart JS -->
+        <%-- <script src="/assets/libs/chart.js/Chart.bundle.min.js"></script>
+        <script src="/assets/js/pages/chartjs.init.js"></scr--%>
+
+        <!-- form repeater js -->
+        <script src="/assets/libs/jquery.repeater/jquery.repeater.min.js"></script>
+
+        <script src="/assets/js/pages/form-repeater.int.js"></script>
+
+        <script src="/assets/js/app.js"></script>
+
+        <script src="/assets/js/pages/form-advanced.init.js"></script>
+
+        <!-- form mask -->
+        <script src="/assets/libs/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+
+        <!-- form mask init -->
+        <script src="/assets/js/pages/form-mask.init.js"></script>
+
+        <!-- Sweet Alerts js -->
+        <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+
+        <!-- Sweet alert init js-->
+        <script src="/assets/js/pages/sweet-alerts.init.js"></script>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        <asp:ContentPlaceHolder ID="jsscripts" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
